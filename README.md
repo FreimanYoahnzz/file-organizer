@@ -38,3 +38,38 @@ Esta es una versión beta (v1.0). Tiene estas limitaciones:
 - **Una categoría que está en uso** por algún proceso no se puede eliminar. Primero cambia la categoría de ese proceso.
 - **Dos procesos con la misma carpeta de origen y la misma extensión** no generan ninguna advertencia. El primero que se ejecute se queda con los archivos.
 - **`FileOrganizerAuto.exe` no está pensado para abrirse a mano.** Lo ejecuta Windows en segundo plano, así que usa siempre `FileOrganizer.exe`.
+
+## Cómo construir los .exe
+
+Si quieres generar los ejecutables tú mismo a partir del código, necesitas Python 3.12 o superior y PyInstaller:
+
+```
+pip install pyinstaller
+```
+
+Desde la carpeta del proyecto, genera los dos ejecutables:
+
+```
+pyinstaller --onefile --clean --name FileOrganizer --icon FileOrganizer.ico program.py
+pyinstaller --onefile --noconsole --clean --name FileOrganizerAuto --icon FileOrganizerAuto.ico program.py
+```
+
+Los ejecutables quedan en la carpeta `dist/`. Ambos deben estar en la misma carpeta para que el modo automático funcione.
+
+## Próximas versiones
+
+Mejoras que planeo para las siguientes versiones:
+
+- Interfaz gráfica.
+- Advertencia cuando dos procesos comparten la misma carpeta de origen y la misma extensión.
+- Elegir qué procesos se ejecutan en el modo automático.
+- Intervalo de tiempo del modo automático configurable (cada cuanto se ejecuta el modo automatico, actualmente es cada 2 min).
+- Agregar y quitar extensiones de una categoría existente.
+- Ver las últimas líneas del historial.
+- Ver los procesos que usan una categoría sin tener que eliminarla.
+
+## Autor y licencia
+
+Desarrollado por **FreimanYoahnzz** (Freimhzz Studio).
+
+Distribuido bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
