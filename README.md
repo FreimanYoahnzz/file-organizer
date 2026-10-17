@@ -39,6 +39,30 @@ Esta es una versión beta (v1.0). Tiene estas limitaciones:
 - **Dos procesos con la misma carpeta de origen y la misma extensión** no generan ninguna advertencia. El primero que se ejecute se queda con los archivos.
 - **`FileOrganizerAuto.exe` no está pensado para abrirse a mano.** Lo ejecuta Windows en segundo plano, así que usa siempre `FileOrganizer.exe`.
 
+## Desinstalar o mover el programa
+
+El modo automático crea una tarea en el Programador de tareas de Windows llamada `FileOrgAutomatico`. Esa tarea guarda la ruta exacta de `FileOrganizerAuto.exe`.
+
+**Antes de borrar o mover la carpeta del programa**, abre `FileOrganizer.exe`, entra a **4. Modo automático** y elimina la tarea desde ahí.
+
+### Si ya borraste la carpeta con el modo automático activo
+
+La tarea sigue existiendo y falla cada 2 minutos porque no encuentra el `.exe`. Para eliminarla tienes dos opciones:
+
+**Opción 1: con un comando**
+
+1. Abre **PowerShell** (busca "PowerShell" en el menú Inicio).
+2. Escribe: `schtasks /Delete /TN FileOrgAutomatico /F`
+3. Pulsa Enter. Si aparece el mensaje de que la tarea se eliminó correctamente, ya está.
+
+**Opción 2: desde el Programador de tareas**
+
+1. Abre el menú Inicio, escribe "Programador de tareas" y ábrelo.
+2. En el panel izquierdo, entra a **Biblioteca del Programador de tareas**.
+3. Busca la tarea `FileOrgAutomatico`, haz clic derecho y elige **Eliminar**.
+
+Si solo moviste la carpeta, vuelve a abrir `FileOrganizer.exe` desde la nueva ubicación y activa de nuevo el modo automático desde el menú, para que la tarea apunte al lugar correcto.
+
 ## Cómo construir los .exe
 
 Si quieres generar los ejecutables tú mismo a partir del código, necesitas Python 3.12 o superior y PyInstaller:
