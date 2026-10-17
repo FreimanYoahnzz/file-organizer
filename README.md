@@ -27,3 +27,14 @@ Es un programa para Windows que sirve para pasar archivos de una carpeta a otra 
 ### Aviso de Windows
 
 Al abrir el programa por primera vez, Windows puede mostrar el aviso **"Windows protegió su PC"**. Aparece porque el programa no tiene firma digital, no porque tenga algún problema. Para continuar, pulsa **Más información** y luego **Ejecutar de todas formas**.
+
+## Limitaciones conocidas
+
+Esta es una versión beta (v1.0). Tiene estas limitaciones:
+
+- **Solo funciona en Windows.**
+- **El modo automático** revisa las carpetas cada 2 minutos. Solo funciona con tu sesión de Windows abierta. En portátiles, la tarea se pausa mientras el equipo funciona con batería y continúa cuando conectas el cargador.
+- **Si mueves la carpeta del programa** después de activar el modo automático, la tarea sigue apuntando a la ubicación anterior. Para arreglarlo, entra a **4. Modo automático**, elimina la tarea y vuelve a activarla desde la nueva ubicación.
+- **Una categoría que está en uso** por algún proceso no se puede eliminar. Primero cambia la categoría de ese proceso.
+- **Dos procesos con la misma carpeta de origen y la misma extensión** no generan ninguna advertencia. El primero que se ejecute se queda con los archivos.
+- **`FileOrganizerAuto.exe` no está pensado para abrirse a mano.** Lo ejecuta Windows en segundo plano, así que usa siempre `FileOrganizer.exe`.
